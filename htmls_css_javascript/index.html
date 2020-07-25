@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/22ee5c3f97.css" />
+    <style>
+      .login-or {
+        position: relative;
+        color: #aaa;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .span-or {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: -2px;
+        margin-left: -25px;
+        background-color: #fff;
+        width: 50px;
+        text-align: center;
+      }
+      .hr-or {
+        height: 1px;
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+      }
+    </style>
+    <title>janjanamsyamkoteswar_htmsandcssandJS</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="row bg-primary ">
+          <div class="col">
+            <img
+              class="img-fluid rounded float-left"
+              src="icons8-education-50.png"
+            />
+          </div>
+          <div class="col-center col-auto">
+            <h1 class="text-light">sign in</h1>
+          </div>
+          <div class="col float-right mx-auto">
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container h-100 bg-white text-dark">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+          <form id="signin_form" action="">
+            <div class="input-group my-3">
+              <input
+                type="text"
+                class="form-control"
+                id = "mailid"
+                placeholder="mail@example.com"
+              />
+              <div class="input-group-append bg-white">
+                <span class="input-group-text bg-white">
+                  <i
+                    class="fa fa-envelope-open-o bg-white"
+                    aria-hidden="true"
+                  ></i>
+                </span>
+              </div>
+            </div>
+            <div class="input-group my-3">
+              <input
+                id="secretcode"
+                type="password"
+                class="form-control"
+                placeholder="password"
+              />
+              <div class="input-group-append bg-light">
+                <span class="input-group-text bg-white">
+                  <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+            <div class="bt-group my-3">
+              <button onclick=submit_form() class="btn btn-primary form-control">
+                sign in
+              </button>
+            </div>
+            <div class="form-group my-2 d-flex justify-content-between">
+              <a href="">Forgot your password?</a>
+              <a href="">Register</a>
+            </div>
+            <div class="col-md-12 ">
+              <div class="login-or">
+                <hr class="hr-or" />
+                <span class="span-or">or</span>
+              </div>
+            </div>
+            <div class="bt-group mt-5">
+              <button type="button" class="btn btn-primary form-control">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="bt-group my-3">
+              <button type="button" class="btn btn-danger form-control">
+                <i class="fa fa-google" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="bt-group my-5">
+              <button type="button" class="btn btn-warning form-control">
+                &lt; EPAM LOGIN &gt;
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        function ValidateEmail(mail) 
+        {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+                return (true)
+            alert("You have entered an invalid email address!")
+            return (false)
+        }
+        function ValidatePassword(password)
+        {
+            if (/.+/.test(password))
+                return true
+            alert("please enter your password!")
+            return false
+        }
+        function submit_form(){
+            var mail = document.getElementById("mailid").value;
+            if(ValidateEmail(mail)){
+                var password = document.getElementById("secretcode").value;
+                if(ValidatePassword(password)){
+                    alert("successfully logged in!");
+                    document.getElementById("signin_form").submit();
+                }
+            }
+        }
+        
+    </script>
+  </body>
+</html>
